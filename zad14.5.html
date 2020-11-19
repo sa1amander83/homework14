@@ -1,0 +1,24 @@
+
+<html>
+
+</html>
+
+<script>
+    let inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');
+   
+    while(inputData==""){
+        alert('Вы ввели пустое значение')
+         inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');}
+   
+        for (let i =0; i<localStorage.length;i++) {
+                    
+          if(inputData==localStorage.key(i)) {
+     
+             alert(`Добрый день, ${localStorage.key(i)}! Давно не виделись.
+       В последний раз вы были у нас ${localStorage.getItem(localStorage.key(i))}`);
+      }
+    }
+   let currDate= new Date();
+    localStorage.setItem(inputData, currDate);
+     
+</script>

@@ -1,0 +1,75 @@
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+/* form {
+border: 1px solid darkblue;
+
+} */
+
+table {
+  
+  margin-left: 50px;
+  padding: 10px;
+  border: 1px solid darkblue;
+  border-collapse: collapse
+}
+
+td {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid darkblue;
+  text-align: center;
+  font-weight: bold;
+}
+
+tr {
+  padding: 10px;
+  border: 1px solid darkblue;
+
+}
+
+
+.card {
+  width: 200px;
+  margin: 20px;
+}
+
+.card-image {
+  display: block;
+  width: 200px;
+  height: 150px;
+}
+
+.btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: pointer;
+  font-weight: bold;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+
+  text-transform: uppercase;
+  color: rgb(78, 21, 13);
+  background: #18bcd1;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  box-shadow: 0px 2px 8px 2px rgba(141,150,178,.3);
+  transform: scale(1.05);
+}
+
+#qt {
+  font-size:20;
+  font-weight: bold;
+
+}
