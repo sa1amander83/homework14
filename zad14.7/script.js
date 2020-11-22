@@ -57,8 +57,6 @@ completed: ${item.completed}
 todoAll+=todoComplete;
   }
   });
-
-
      output.innerHTML = todoAll;
     
   }
