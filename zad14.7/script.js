@@ -8,59 +8,52 @@ function pageLoaded() {
 
    function sendRequest() {
     const inputid = +document.querySelector("#page").value;
+
+if (isNaN(inputid)|| inputid>10 || inputid<1) {
+  alert ('пользователь с указанным id не существует');
+}
+else {
+
    fetch(`https://jsonplaceholder.typicode.com/users/${+inputid}/todos`)
       .then(response => {
-             return response.json();
-
-      })
+            return response.json();
+            })
       .then(data => {
-        console.log(data);
-       formatOutput(data);
-      
-          });
-          // .catch(() => {
-          //   console.log('Пользователь с указанным id не найден'); });
-          }
+        formatOutput(data);
+            });
+              }
    
-
   function formatOutput(data) {
 
+     let todoAll = '';
+      data.forEach(item => {
 
- 
-
-          let todoAll = '';
-     data.forEach(item => {
-
- const todoid=item.id;
-  const userid=item.userId;
-  const title=item.title;
-  const complete=item.completed;
+      const complete=item.completed;
 
 if (complete==false){
-       const todoUncomplete = `
-          <ul>{
+        const todoUncomplete = `
+   <ul>{
+      userid: ${item.userId},
+      id: ${item.id},
+      title: ${item.title},
+      completed: ${item.completed}
+   }</ul> `;
+   todoAll += todoUncomplete;
+
+   } else {
+  const todoComplete = `
+ <ul> <s>{
     userid: ${item.userId},
     id: ${item.id},
     title: ${item.title},
     completed: ${item.completed}
-}</ul> `;
-
-       todoAll += todoUncomplete;
-   }else {
-    const todoComplete = `
-    <ul> <s>{
-userid: ${item.userId},
-id: ${item.id},
-title: ${item.title},
-completed: ${item.completed}
-}</s></ul> `;
+    }</s></ul> `;
 todoAll+=todoComplete;
-  }
-  });
+  }});
      output.innerHTML = todoAll;
     
   }
-  
+}
  btn.addEventListener("click", sendRequest);
 }
 
