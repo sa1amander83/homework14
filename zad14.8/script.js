@@ -10,7 +10,8 @@ function pageLoaded() {
   const btnClear= document.querySelector("#btnClear");
 
 //проврка на наличие в localstorage инфы
-  if (localStorage.length>0) {
+  // Проверка записей в localStorage сделана неправильно, т.к. вы проверяете просто наличие записей в localStorage, но не факт, что среди имеющихся записей будет та, что содержит ранее загруженные фотографии. Поэтому в случае, если в localStorage записан какой-то другой ключ (не items), возникает ошибка. Нужно проверять наличие конкретного свойства, которое нужно для дальнейшей работы
+  if (localStorage.getItem('items')) {
      formatOutput(JSON.parse(localStorage.getItem('items'))
         );} 
 

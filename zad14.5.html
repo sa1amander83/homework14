@@ -4,21 +4,24 @@
 </html>
 
 <script>
-    let inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');
+    
+    let currDate = new Date();
+    localStorage.setItem('lastVisit', currDate);
+
+    if (localStorage.getItem('userName')) {
+      alert(`Добрый день, ${localStorage.getItem('userName')}! Давно не виделись.
+       В последний раз вы были у нас ${localStorage.getItem('lastVisit')}`);
+    } else {
+      let inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');
    
-    while(inputData==""){
+      while(inputData==""){
         alert('Вы ввели пустое значение')
-         inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');}
-   
-        for (let i =0; i<localStorage.length;i++) {
-                    
-          if(inputData==localStorage.key(i)) {
-     
-             alert(`Добрый день, ${localStorage.key(i)}! Давно не виделись.
-       В последний раз вы были у нас ${localStorage.getItem(localStorage.key(i))}`);
+        inputData = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');
       }
+
+      localStorage.setItem('userName', inputData);
     }
-   let currDate= new Date();
-    localStorage.setItem(inputData, currDate);
+
+    // Задание выполнено не совсем правильно. После запроса имени (если имя введено), поле ввода уже не должно появляться, если только пользователь не очистит хранилище вручную. Сейчас поле ввода появляется повторно. Также не совсем оптимально, что вы перебираете в цикле все значения localStorage, их там может быть много :) нет необходимости тратить на это время, т.к. нам известно, к какому ключу нужно обращаться, и можно просто проверить наличие\отсутствие этого ключа. Выше исправила
      
 </script>
